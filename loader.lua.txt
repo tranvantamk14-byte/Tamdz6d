@@ -1,0 +1,26 @@
+local CorrectKey = "bao3A"
+
+local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
+
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0,300,0,150)
+Frame.Position = UDim2.new(0.5,-150,0.5,-75)
+
+local Box = Instance.new("TextBox", Frame)
+Box.Size = UDim2.new(0,250,0,40)
+Box.Position = UDim2.new(0.5,-125,0.2,0)
+Box.PlaceholderText = "Nhập Key"
+
+local Button = Instance.new("TextButton", Frame)
+Button.Size = UDim2.new(0,250,0,40)
+Button.Position = UDim2.new(0.5,-125,0.6,0)
+Button.Text = "Xác Nhận"
+
+Button.MouseButton1Click:Connect(function()
+    if Box.Text == CorrectKey then
+        ScreenGui:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MakalHub/Script/refs/heads/main/loader.lua"))()
+    else
+        Button.Text = "Sai Key!"
+    end
+end)
