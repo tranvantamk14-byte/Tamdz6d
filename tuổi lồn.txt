@@ -1,0 +1,63 @@
+local validKey = "bao3A"
+local getKeyLink = "https://your-key-link.com"
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Orion.lua"))()
+
+local Window = Library:MakeWindow({
+    Name = "Get Key System",
+    HidePremium = false,
+    SaveConfig = false
+})
+
+local Tab = Window:MakeTab({
+    Name = "Key",
+    Icon = "rbxassetid://4483345998"
+})
+
+Tab:AddButton({
+    Name = "Get Key",
+    Callback = function()
+        setclipboard(getKeyLink)
+
+        Library:MakeNotification({
+            Name = "Get Key",
+            Content = "Đã copy link get key!",
+            Time = 4
+        })
+    end
+})
+
+Tab:AddTextbox({
+    Name = "Nhập Key",
+    Default = "",
+    TextDisappear = false,
+
+    Callback = function(Value)
+
+        if Value == validKey then
+
+            Library:MakeNotification({
+                Name = "Success",
+                Content = "Key đúng! Loading Script...",
+                Time = 4
+            })
+
+            wait(1)
+
+            loadstring(game:HttpGet(
+                "https://raw.githubusercontent.com/lifelinh/Milk/refs/heads/main/126884695634066"
+            ))()
+
+        else
+
+            Library:MakeNotification({
+                Name = "Error",
+                Content = "Key sai!",
+                Time = 4
+            })
+
+        end
+    end
+})
+
+Library:Init()
